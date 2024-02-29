@@ -28,7 +28,10 @@ SECRET_KEY = config('DJANGO_SECRET_KEY', default=None)
 DEBUG = config('DJANGO_DEBUG', cast=bool, default=False)
 
 ALLOWED_HOSTS = []
-ALLOWED_HOSTS = config('ALLOWED_HOST', cast=str, default="")
+ALLOWED_HOST = config('ALLOWED_HOST', cast=str, default="")
+if ALLOWED_HOST:
+    ALLOWED_HOSTS.append(ALLOWED_HOST.strip())
+
 
 # Application definition
 
